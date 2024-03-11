@@ -43,7 +43,7 @@ def build_cogsearch_index(
     index = build_index(
         output_index_name=index_name,
         vector_store=vector_store,
-        embeddings_model="azure_open_ai://deployment/text-embedding-ada-002/model/text-embedding-ada-002-2",
+        embeddings_model=f"azure_open_ai://deployment/{azure_openai_embedding_deployment}/model/{azure_openai_embedding_model}",
         data_source_url=data_source_url,
         index_input_config=LocalSource(input_data=path_to_data),
         acs_config=ACSOutputConfig(
