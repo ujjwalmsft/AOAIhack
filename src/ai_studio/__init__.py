@@ -1,2 +1,2 @@
-from .chat import chat_completion, chat_with_documents
+from .chat import chat_completion
 from .ingest_documents import build_cogsearch_index

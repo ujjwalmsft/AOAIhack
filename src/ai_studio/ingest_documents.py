@@ -28,9 +28,6 @@ def build_cogsearch_index(
 
     client = AIClient.from_config(DefaultAzureCredential())
 
-    print(
-        "Azure AI Search Connection name: ", azure_ai_cognitive_search_connection_name
-    )
     default_aoai_connection = client.get_default_aoai_connection()
     default_aoai_connection.set_current_environment()
 
