@@ -31,6 +31,7 @@ async def get_documents(
         embedding_to_query = embedding.data[0].embedding
 
     context = ""
+    contexts = []
     async with search_client:
         # use the vector embedding to do a vector search on the index
         vector_query = RawVectorQuery(
@@ -41,6 +42,7 @@ async def get_documents(
         )
 
         async for result in results:
-            context += f"\n>>> From: {result['id']}\n{result['content']}"
+            context += f"\n>>> {result['content']}"
+            contexts.append(result["content"])
 
-    return context
+    return context, contexts

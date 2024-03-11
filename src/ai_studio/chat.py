@@ -27,7 +27,7 @@ def chat_completion(
     max_tokens: int = 800,
 ):
     # get search documents for the last user message in the conversation
-    context = asyncio.run(
+    context, contexts = asyncio.run(
         get_documents(
             question=question,
             index_name=index_name,
@@ -68,6 +68,7 @@ def chat_completion(
     # add context in the returned response
     context_dict = {
         "context": context,
+        "contexts": contexts,
         "num_docs": num_docs,
         "temperature": temperature,
         "max_tokens": max_tokens,

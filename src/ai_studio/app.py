@@ -176,8 +176,12 @@ def main_func():
                     )
 
                     answer = result["choices"][0]["message"]["content"]
+                    contexts = result["choices"][0]["context"]["contexts"]
                     with st.chat_message("assistant"):
                         st.markdown(answer)
+                        for idx, context in enumerate(contexts):
+                            with st.expander(label=f"Reference {idx+1}"):
+                                st.write(context)
 
                     with st.form("current_form"):
                         col1, col2 = st.columns([3, 1])
