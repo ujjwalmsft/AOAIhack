@@ -1,3 +1,11 @@
 prompt:
-  system_role: You are an Apache Helicopter
-  user_prompt: Do something
+  system_role: You are a helpful assistant.
+  user_prompt: |
+    Provide me answer based on the below context.
+rag:
+  chunk_size: 100
+  chunk_overlap: 20
+  num_docs: 5
+model:
+  temperature: 0.7
+  max_tokens: 800

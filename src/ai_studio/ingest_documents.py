@@ -14,17 +14,13 @@ def build_cogsearch_index(
     path_to_data: str,
     chunk_size: int,
     chunk_overlap: int,
-    azure_ai_search_endpoint: str,
-    azure_ai_search_key: str,
-    azure_ai_cognitive_search_connection_name: str,
-    azure_openai_embedding_deployment: str,
-    azure_openai_embedding_model: str,
-    vector_store: str = "azure_cognitive_search",
     data_source_url: str = None,
 ):
     # Set up environment variables for cog search SDK
-    os.environ["AZURE_COGNITIVE_SEARCH_TARGET"] = azure_ai_search_endpoint
-    os.environ["AZURE_COGNITIVE_SEARCH_KEY"] = azure_ai_search_key
+    os.environ["AZURE_COGNITIVE_SEARCH_TARGET"] = os.environ.get(
+        "AZURE_AI_SEARCH_ENDPOINT", ""
+    )
+    os.environ["AZURE_COGNITIVE_SEARCH_KEY"] = os.environ.get("AZURE_AI_SEARCH_KEY", "")
 
     client = AIClient.from_config(DefaultAzureCredential())
 
@@ -32,15 +28,15 @@ def build_cogsearch_index(
     default_aoai_connection.set_current_environment()
 
     default_acs_connection = client.connections.get(
-        azure_ai_cognitive_search_connection_name
+        os.environ.get("AZURE_COGNITIVE_SEARCH_CONNECTION_NAME", "")
     )
     default_acs_connection.set_current_environment()
 
     # Use the same index name when registering the index in AI Studio
     index = build_index(
         output_index_name=index_name,
-        vector_store=vector_store,
-        embeddings_model=f"azure_open_ai://deployment/{azure_openai_embedding_deployment}/model/{azure_openai_embedding_model}",
+        vector_store=os.environ.get("VECTOR_STORE", ""),
+        embeddings_model=f"azure_open_ai://deployment/{os.environ.get('AZURE_OPENAI_EMBEDDING_DEPLOYMENT')}/model/{os.environ.get('AZURE_OPENAI_EMBEDDING_MODEL')}",
         data_source_url=data_source_url,
         index_input_config=LocalSource(input_data=path_to_data),
         acs_config=ACSOutputConfig(
