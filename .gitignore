@@ -257,7 +257,6 @@ tmp*/
 
 output*
 *.zip
-*.ipynb
 
 
 # Ignore files for local Azure functions testing
