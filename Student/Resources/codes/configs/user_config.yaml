@@ -5,7 +5,8 @@ prompt:
 
     If you are unable to answer based on the given context, please say "I don't know".
 rag:
-  chunk_size: 100
+  index_name: financial_regulations
+  chunk_size: 300
   chunk_overlap: 20
   num_docs: 5
 model:
