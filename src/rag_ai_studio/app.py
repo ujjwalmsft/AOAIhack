@@ -2,7 +2,7 @@ import streamlit as st
 import yaml
 from dotenv import load_dotenv
 
-from ai_studio.chat import chat_completion
+from rag_ai_studio.chat import chat_completion
 
 st.set_page_config(
     page_title="Ask me Anything", layout="wide", page_icon="images/favicon.png"
