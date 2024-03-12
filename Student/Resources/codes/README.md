@@ -12,13 +12,14 @@ Contains codebase for MS Hack AI Studio
     ```
 2. Install library
     ```
+    # cd Student/Resources/codes
     pip install -e .
     ```
-3. Install Azure CLI
+3. Install Azure CLI (Optional)
 
     Azure CLI can be installed from the link provided [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-4. Login to azure ai studio
+4. Login to azure ai studio (Optional)
     ```
     az login
     ```
