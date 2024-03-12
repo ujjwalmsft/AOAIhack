@@ -21,7 +21,7 @@ install_reqs = get_install_req()
 
 
 setup(
-    name="ai_studio",
+    name="rag_ai_studio",
     version="0.0.1",
     package_dir={"": "src"},
     description="DS Innovation - NLP",

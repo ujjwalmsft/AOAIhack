@@ -33,5 +33,5 @@ Code can be run through notebook which can be found at `notebooks/End to End.ipy
 Streamlit UI can be run as follows.
 
 ```
-streamlit run src/ai_studio/app.py
+streamlit run src/rag_ai_studio/app.py
 ```
