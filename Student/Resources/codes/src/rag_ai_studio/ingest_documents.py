@@ -28,7 +28,7 @@ def build_cogsearch_index(
     default_aoai_connection.set_current_environment()
 
     default_acs_connection = client.connections.get(
-        os.environ.get("AZURE_COGNITIVE_SEARCH_CONNECTION_NAME", "")
+        os.environ.get("AZURE_AI_COGNITIVE_SEARCH_CONNECTION_NAME", "")
     )
     default_acs_connection.set_current_environment()
 

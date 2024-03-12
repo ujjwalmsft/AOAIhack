@@ -1,14 +1,12 @@
 import streamlit as st
 import yaml
 from dotenv import load_dotenv
-
 from rag_ai_studio.chat import chat_completion
 
 st.set_page_config(
     page_title="Ask me Anything", layout="wide", page_icon="images/favicon.png"
 )
 
-INDEX_NAME = "test"
 with open("configs/user_config.yaml") as f:
     model_config = yaml.safe_load(f)
 
@@ -169,7 +167,7 @@ def main_func():
                         question=query,
                         system_role=model_config["prompt"]["system_role"],
                         user_prompt=model_config["prompt"]["user_prompt"],
-                        index_name=INDEX_NAME,
+                        index_name=model_config["rag"]["index_name"],
                         num_docs=model_config["rag"]["num_docs"],
                         temperature=model_config["model"]["temperature"],
                         max_tokens=model_config["model"]["max_tokens"],
