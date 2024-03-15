@@ -10,16 +10,20 @@ Contains codebase for MS Hack AI Studio
     ```
     conda create -n azureaistudio python=3.10.13
     ```
-2. Install library
+2. Activate conda environment
+    ```
+    conda activate azureaistudio
+    ```
+3. Install library
     ```
     # cd Student/Resources/codes
     pip install -e .
     ```
-3. Install Azure CLI (Optional)
+4. Install Azure CLI
 
     Azure CLI can be installed from the link provided [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
-4. Login to azure ai studio (Optional)
+5. Login to azure ai studio
     ```
     az login
     ```
